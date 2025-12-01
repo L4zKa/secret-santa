@@ -1,7 +1,7 @@
 🚀 Live App
 
 👉 Use the app here:
-https://<your-username>.github.io/<your-repo>/](https://l4zka.github.io/secret-santa/
+https://l4zka.github.io/secret-santa/
 
 
 (Replace with your real GitHub Pages link.)
