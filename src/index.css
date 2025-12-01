@@ -89,3 +89,28 @@ input::placeholder {
   font-family: inherit;
   background-color: darkred;
 }
+
+.participantList {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
+
+.getPairsButton {
+  margin-top: 20px;
+  background-color: white;
+  color: darkred;
+}
+
+.pairList {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.pairListItem {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}
