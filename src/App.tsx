@@ -45,22 +45,20 @@ function App() {
 
   return (
     <div>
-      {pairs.size == 0 && (
-        <>
-          <AddParticipants
-            allParticipants={allParticipants}
-            addNewP={onAddParticipant}
-          />
+      <>
+        <AddParticipants
+          allParticipants={allParticipants}
+          addNewP={onAddParticipant}
+        />
 
-          {/* Display participants */}
-          {allParticipants.length !== 0 && (
-            <DisplayParticipants
-              allParticipants={allParticipants}
-              onFindPairs={findPairs}
-            />
-          )}
-        </>
-      )}
+        {/* Display participants */}
+        {allParticipants.length !== 0 && (
+          <DisplayParticipants
+            allParticipants={allParticipants}
+            onFindPairs={findPairs}
+          />
+        )}
+      </>
       {/* Show result */}
       {pairs.size > 0 && <DisplayPairs pairs={pairs} />}
     </div>
