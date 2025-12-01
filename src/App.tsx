@@ -1,35 +1,62 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [allParticipants, setAllParticipants] = useState<string[]>([]);
+  const [participantToAdd, setParticipantToAdd] = useState<string>("");
+
+  const onAddParticipant = () => {
+    const newList: string[] = [...allParticipants, participantToAdd];
+    setAllParticipants(newList);
+    setParticipantToAdd("");
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "flex-start",
+      }}
+    >
+      <div style={{ display: "flex", gap: "5px", marginBottom: "25px" }}>
+        <input
+          value={participantToAdd}
+          placeholder="Teilnehmer"
+          onChange={(ev) => setParticipantToAdd(ev.currentTarget.value)}
+          onKeyDown={(event) => {
+            if (event.key == "Enter") {
+              onAddParticipant();
+            }
+          }}
+        />
+        <button onClick={onAddParticipant}>Hinzufügen</button>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+
+      {allParticipants.length != 0 && (
+        <>
+          <label>Teilnehmer:</label>
+          <div
+            style={{
+              width: "100%",
+
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+
+              gap: "5px",
+            }}
+          >
+            {allParticipants.sort().map((p) => (
+              <label key={p} className="participantLabel">
+                {p}
+              </label>
+            ))}
+          </div>
+        </>
+      )}
+    </div>
+  );
 }
 
-export default App
+export default App;
